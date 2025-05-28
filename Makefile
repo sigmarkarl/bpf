@@ -8,11 +8,11 @@ all: build-linux
 
 # For cross-compilation from non-Linux OS
 build-linux:
-	GOOS=linux GOARCH=amd64 go build -o $(LINUX_BINARY) .
-	
+	GOOS=linux GOARCH=amd64 go build -o $(LINUX_BINARY) -tags linux .
+
 # For cross-compilation from non-Linux OS
 build-linux-arm:
-	GOOS=linux GOARCH=arm64 go build -o $(LINUX_ARM_BINARY) .
+	GOOS=linux GOARCH=arm64 go build -o $(LINUX_ARM_BINARY) -tags linux .
 	
 clean:
 	rm -f $(LINUX_BINARY)
