@@ -4,7 +4,7 @@ BINARY_NAME=packet_sniffer
 LINUX_BINARY=$(BINARY_NAME)_linux_amd64
 LINUX_ARM_BINARY=$(BINARY_NAME)_linux_arm64
 
-all: build-linux build-linux-arm
+all: build-linux
 
 # For cross-compilation from non-Linux OS
 build-linux:

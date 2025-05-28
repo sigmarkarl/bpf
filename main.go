@@ -344,12 +344,11 @@ func attachSocketFilter(fd int, bpfRaw []bpf.RawInstruction) error {
 			Filter *bpf.RawInstruction
 		}
 
-		prog := sockFprog{
-			Len:    uint16(len(bpfRaw)),
-			Filter: &bpfRaw[0],
-		}
-
-		// On actual Linux systems, you'd use:
+		// On actual Linux systems, you'd create a sockFprog and use:
+		// prog := sockFprog{
+		//     Len:    uint16(len(bpfRaw)),
+		//     Filter: &bpfRaw[0],
+		// }
 		// err := syscall.SetsockoptPointer(fd, SOL_SOCKET, SO_ATTACH_FILTER, unsafe.Pointer(&prog))
 		// But this isn't portable across platforms
 		fmt.Println("Attaching BPF filter to socket...")
